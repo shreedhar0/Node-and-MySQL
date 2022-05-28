@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database</title>
+</head>
+<body>
+    <h3 align="center">Student Data</h3>
+    <table border="1px solid black" width="100%">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+        <% if(studentdata.length > 0){ %>
+            <% for(var i = 0; i < studentdata.length; i++){ %>
+                <tr>
+                    <td>
+                        <%- studentdata[i].studentid %>
+                    </td>
+                    <td>
+                        <%- studentdata[i].fname %>
+                    </td>
+                    <td>
+                        <%- studentdata[i].lname %>
+                    </td>
+                    <td>
+                        <a href="/delete-student?id=<%- studentdata[i].studentid %>">Delete</a>
+                        <a href="/update-student?id=<%- studentdata[i].studentid %>">Update</a>
+                    </td>
+                </tr>
+            <% } %>
+        <% }else{ %>
+            <h3>Database is empty!!</h3>
+        <% } %>
+    </table>
+</body>
+</html>
